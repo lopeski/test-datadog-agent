@@ -1,0 +1,16 @@
+logs_enabled: true
+logs_config:
+  container_collect_all: false
+  logs_no_ssl: false
+  processing_rules:
+    - type: exclude_at_match
+      name: not_send_users_logs
+      pattern: \w+@datadoghq.com
+    - type: exclude_at_match
+      name: not_send_nest_application_logs
+      pattern: \w+@datadoghq.com # Nest application
+  force_use_http: false
+  force_use_tcp: false
+  use_compression: false
+  compression_level: 6
+  batch_wait: 5
